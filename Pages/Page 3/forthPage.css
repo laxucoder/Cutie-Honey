@@ -1,94 +1,192 @@
-body {
-	height: 100vh;
-    overflow: hidden;
+/* ===== BODY ===== */
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(
+        270deg,
+        #ff0080,
+        #ff4d6d,
+        #ff758c,
+        #ff9a9e,
+        #ff006e,
+        #8338ec,
+        #3a86ff,
+        #ff0080
+    );
+    background-size:1200% 1200%;
+    animation:bgMove 5s linear infinite;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1{  
-    margin: 5rem 0 0;
-    padding-bottom: 0;
-    display: flex;
-    justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #111;
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
+/* ===== HEADING ===== */
+h1{
+    margin-top:50px;
+    text-align:center;
+    color:white;
+    font-size:4rem;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff69b4,
+        0 0 40px #ff1493,
+        0 0 80px #ff1493;
+}
+
+/* ===== IMAGE ===== */
 img{
-    margin-top:0;
-    height: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height:400px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    filter:
+        drop-shadow(0 0 20px white)
+        drop-shadow(0 0 50px hotpink);
 }
 
-.buttons {
-    font-size: 35px;
-    display: flex;
-    justify-content: center;
-    margin-top: 29rem;
-    padding-top: 2rem;
-    gap: 12rem;
+/* ===== BUTTON CONTAINER ===== */
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:8rem;
+    margin-top:30rem;
 }
 
-.romantic1{
-    margin: 0;
-    position: absolute;
-    top: 5%;
-    left: 85%;
-    transform: translate(-50%, -50%);
+/* ===== PREMIUM BUTTON ===== */
+button{
+    position:relative;
+    padding:25px 70px;
+    font-size:45px;
+    font-weight:bold;
+    color:white;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    background:#111;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:
+        0 0 20px rgba(255,255,255,.4),
+        0 0 50px rgba(255,20,147,.5);
 }
-.romantic2{
-    margin: 0;
-    position: absolute;
-    top: 15%;
-    left: 15%;
-    transform: translate(-50%, -50%);
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:
+        0 0 40px white,
+        0 0 80px hotpink;
 }
-.romantic3{
-    margin: 0;
-    position: absolute;
-    top: 35%;
-    left: 71%;
-    transform: translate(-50%, -50%);
+
+button::before{
+    content:"";
+    position:absolute;
+    inset:-4px;
+    background:linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+    background-size:400%;
+    animation:snake 2s linear infinite;
+    z-index:-2;
 }
-.romantic4{
-    margin: 0;
-    position: absolute;
-    top: 45%;
-    left: 25%;
-    transform: translate(-50%, -50%);
+
+button::after{
+    content:"";
+    position:absolute;
+    inset:4px;
+    background:#111;
+    border-radius:20px;
+    z-index:-1;
 }
-.romantic5{
-    margin: 0;
-    position: absolute;
-    top: 79%;
-    left: 79%;
-    transform: translate(-50%, -50%);
+
+@keyframes snake{
+    0%{background-position:0% 50%;}
+    100%{background-position:400% 50%;}
 }
-.romantic6{
-    margin: 0;
-    position: absolute;
-    top: 75%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-}
+
+/* ===== HEARTS ===== */
+.romantic1,
+.romantic2,
+.romantic3,
+.romantic4,
+.romantic5,
+.romantic6,
 .romantic7{
-    margin: 0;
-    position: absolute;
-    top: 95%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position:absolute;
+    font-size:60px;
+    color:white;
+    text-shadow:
+        0 0 10px white,
+        0 0 20px hotpink,
+        0 0 40px deeppink;
+    animation:floatHeart 2.5s ease-in-out infinite;
 }
 
-.watermark {
-    opacity: 0.5;
-    color: BLACK;
-    position: fixed;
-    top: 97%;
-    left: 47%;
+.romantic1{top:5%;left:85%;}
+.romantic2{top:15%;left:15%;}
+.romantic3{top:35%;left:71%;}
+.romantic4{top:45%;left:25%;}
+.romantic5{top:79%;left:79%;}
+.romantic6{top:75%;left:10%;}
+.romantic7{top:95%;left:50%;}
+
+@keyframes floatHeart{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* ===== TWINKLING STARS ===== */
+body::before{
+    content:"✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦";
+    position:absolute;
+    width:100%;
+    top:0;
+    left:0;
+    color:white;
+    font-size:28px;
+    opacity:.8;
+    animation:blinkStars .4s infinite alternate;
+    pointer-events:none;
+}
+
+@keyframes blinkStars{
+    from{
+        opacity:.2;
+    }
+    to{
+        opacity:1;
+        text-shadow:0 0 20px white;
+    }
+}
+
+/* ===== WATERMARK ===== */
+.watermark{
+    position:fixed;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    opacity:.7;
 }
 
 a{
-    text-decoration: none;
-    color: black;
+    text-decoration:none;
+    color:white;
 }
