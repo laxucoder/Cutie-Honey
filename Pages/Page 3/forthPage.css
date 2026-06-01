@@ -61,8 +61,8 @@ img{
 /* ===== PREMIUM BUTTON ===== */
 button{
     position:relative;
-    padding:25px 70px;
-    font-size:45px;
+    padding:10px 30px;
+    font-size:20px;
     font-weight:bold;
     color:white;
     border:none;
