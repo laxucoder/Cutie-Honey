@@ -5,54 +5,259 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classic Proposal</title>
     <link rel="icon" href="../Assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="forthPage.css" />
+    
+    <style>
+        /* ===== BODY ===== */
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(
+                270deg,
+                #ff0080,
+                #ff4d6d,
+                #ff758c,
+                #ff9a9e,
+                #ff006e,
+                #8338ec,
+                #3a86ff,
+                #ff0080
+            );
+            background-size: 1200% 1200%;
+            animation: bgMove 5s linear infinite;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ===== HEADING ===== */
+        h1 {
+            margin: 20px 0 0 0;
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            text-shadow:
+                0 0 10px #fff,
+                0 0 20px #ff69b4,
+                0 0 40px #ff1493,
+                0 0 80px #ff1493;
+            z-index: 10;
+        }
+
+        /* ===== CONTENT CONTAINER ===== */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10;
+            max-height: 75vh;
+            justify-content: center;
+        }
+
+        /* ===== IMAGE ===== */
+        img {
+            height: 250px; /* Scaled down slightly to fit small layouts */
+            width: auto;
+            object-fit: contain;
+            filter:
+                drop-shadow(0 0 20px white)
+                drop-shadow(0 0 50px hotpink);
+        }
+
+        /* ===== BUTTON CONTAINERS ===== */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        /* ===== SMALL PREMIUM BUTTONS ===== */
+        button {
+            position: relative;
+            padding: 6px 16px; /* Compact padding */
+            font-size: 13px;    /* Smaller text size */
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 12px; /* Smoother corner radius for small size */
+            cursor: pointer;
+            background: #111;
+            overflow: hidden;
+            transition: .3s;
+            box-shadow:
+                0 0 10px rgba(255,255,255,.4),
+                0 0 25px rgba(255,20,147,.5);
+        }
+
+        button:hover {
+            transform: scale(1.06);
+            box-shadow:
+                0 0 25px white,
+                0 0 50px hotpink;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            inset: -2px; /* Thinner border edge for smaller footprint */
+            background: linear-gradient(
+                90deg,
+                red, orange, yellow, lime, cyan, blue, violet, red
+            );
+            background-size: 400%;
+            animation: snake 2s linear infinite;
+            z-index: -2;
+        }
+
+        button::after {
+            content: "";
+            position: absolute;
+            inset: 2px; 
+            background: #111;
+            border-radius: 10px; 
+            z-index: -1;
+        }
+
+        @keyframes snake {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+
+        /* ===== ROMANTIC BUTTON MODIFICATIONS ===== */
+        .romantic-btn {
+            width: 210px; /* Slimmer layout width */
+            padding: 5px 12px;
+            font-size: 12px;
+            margin: 1px 0;
+        }
+
+        /* ===== FLOATING EMOJI HEARTS ===== */
+        .emoji-heart {
+            position: absolute;
+            font-size: 50px;
+            user-select: none;
+            text-shadow:
+                0 0 10px white,
+                0 0 20px hotpink,
+                0 0 40px deeppink;
+            animation: floatHeart 2.5s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .romantic1 { top: 5%; left: 85%; }
+        .romantic2 { top: 15%; left: 15%; }
+        .romantic3 { top: 35%; left: 71%; }
+        .romantic4 { top: 45%; left: 25%; }
+        .romantic5 { top: 79%; left: 79%; }
+        .romantic6 { top: 75%; left: 10%; }
+        .romantic7 { top: 95%; left: 50%; }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ===== TWINKLING STARS ===== */
+        body::before {
+            content: "✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦";
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 10px;
+            left: 0;
+            color: white;
+            font-size: 24px;
+            opacity: .8;
+            animation: blinkStars .4s infinite alternate;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        @keyframes blinkStars {
+            from { opacity: .2; }
+            to { opacity: 1; text-shadow: 0 0 20px white; }
+        }
+
+        /* ===== WATERMARK ===== */
+        .watermark {
+            position: relative;
+            margin-bottom: 5px;
+            color: white;
+            opacity: .7;
+            z-index: 10;
+            font-size: 14px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Am I Your Best Friend ?</h1>
+    
     <div class="content">    
-	    <img id="image" src="../Assets/smart.gif">
+        <img id="image" src="../Assets/smart.gif" alt="Cute animation">
+        
         <div class="buttons">
-        <button type="button" onclick = "yesFunction()">
-            <span>Yes 🤭</span>
-        </button>
-        <button type="button" onclick = "noFunction()">
-            <span>No &#128532;</span>
-        </button>
+            <button type="button" onclick="yesFunction()">
+                <span>Yes 🤭</span>
+            </button>
+            <button type="button" onclick="noFunction()">
+                <span>No &#128532;</span>
+            </button>
         </div>
-        <button type="button" class="romantic1" onclick = "myFunction()">
+        
+        <button type="button" class="romantic-btn romantic1" onclick="myFunction()">
             <span>Make Everything Romantic...</span>
         </button>
-        <button type="button" class="romantic2" onclick = "myFunction()">
+        <button type="button" class="romantic-btn romantic2" onclick="myFunction()">
             <span>Make Everything Romantic</span>
         </button>
-        <button type="button" class="romantic3" onclick = "myFunction()">
+        <button type="button" class="romantic-btn romantic3" onclick="myFunction()">
             <span>Make Everything Romantic</span>
         </button>
-        <button type="button" class="romantic4" onclick = "myFunction()">
+        <button type="button" class="romantic-btn romantic4" onclick="myFunction()">
             <span>Make Everything Romantic</span>
         </button>
-        <button type="button" class="romantic5" onclick = "myFunction()">
+        <button type="button" class="romantic-btn romantic5" onclick="myFunction()">
             <span>Make Everything Romantic</span>
         </button>
-        <button type="button" class="romantic6" onclick = "myFunction()">
+        <button type="button" class="romantic-btn romantic6" onclick="myFunction()">
             <span>Make Everything Romantic</span>
         </button>
-        <button type="button" class="romantic7" onclick = "myFunction()">
+        <button type="button" class="romantic-btn romantic7" onclick="myFunction()">
             <span>Make Everything Romantic</span>
         </button>
     </div>
 
+    <div class="emoji-heart romantic1">❤️</div>
+    <div class="emoji-heart romantic2">💖</div>
+    <div class="emoji-heart romantic3">💕</div>
+    <div class="emoji-heart romantic4">💘</div>
+    <div class="emoji-heart romantic5">💝</div>
+    <div class="emoji-heart romantic6">❤️</div>
+    <div class="emoji-heart romantic7">💖</div>
+
     <div class="watermark">
-         Made for <a href="https://github.com/laxucoder">Honey </a>❣️
+         Made for <a href="https://github.com/laxucoder" target="_blank">Honey </a>❣️
     </div>
-    <div class="romantic1">❤️</div>
-<div class="romantic2">💖</div>
-<div class="romantic3">💕</div>
-<div class="romantic4">💘</div>
-<div class="romantic5">💝</div>
-<div class="romantic6">❤️</div>
-<div class="romantic7">💖</div>
 
     <script>
         function yesFunction() {
